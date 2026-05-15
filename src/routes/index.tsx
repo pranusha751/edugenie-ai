@@ -6,7 +6,11 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "EduGenie AI — Learn Smarter with AI" },
-      { name: "description", content: "AI-powered personalized learning for students. Quizzes, study plans, and a smart mentor." },
+      {
+        name: "description",
+        content:
+          "AI-powered personalized learning for students. Quizzes, study plans, and a smart mentor.",
+      },
       { property: "og:title", content: "EduGenie AI" },
       { property: "og:description", content: "Learn Smarter with AI." },
     ],
@@ -40,9 +44,18 @@ function Splash() {
         <p className="mt-4 text-base text-white/90">Learn Smarter with AI</p>
 
         <div className="mt-10 flex gap-1.5">
-          <span className="h-2 w-2 animate-bounce rounded-full bg-white" style={{ animationDelay: "0ms" }} />
-          <span className="h-2 w-2 animate-bounce rounded-full bg-white" style={{ animationDelay: "150ms" }} />
-          <span className="h-2 w-2 animate-bounce rounded-full bg-white" style={{ animationDelay: "300ms" }} />
+          <span
+            className="h-2 w-2 animate-bounce rounded-full bg-white"
+            style={{ animationDelay: "0ms" }}
+          />
+          <span
+            className="h-2 w-2 animate-bounce rounded-full bg-white"
+            style={{ animationDelay: "150ms" }}
+          />
+          <span
+            className="h-2 w-2 animate-bounce rounded-full bg-white"
+            style={{ animationDelay: "300ms" }}
+          />
         </div>
       </div>
     </div>

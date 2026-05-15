@@ -2,6 +2,8 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Brain, ArrowRight, Check } from "lucide-react";
 
+import { setUser } from "@/lib/auth-utils";
+
 export const Route = createFileRoute("/signup")({
   component: Signup,
 });
@@ -11,6 +13,14 @@ const avatars = ["🧑‍🎓", "👩‍🎓", "🧑‍💻", "👩‍💻", "�
 function Signup() {
   const navigate = useNavigate();
   const [avatar, setAvatar] = useState(avatars[0]);
+  const [fullName, setFullName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setUser(fullName, email);
+    navigate({ to: "/dashboard" });
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -27,12 +37,11 @@ function Signup() {
           <p className="mt-1 text-sm text-muted-foreground">Start your AI-powered journey</p>
         </div>
 
-        <form
-          onSubmit={(e) => { e.preventDefault(); navigate({ to: "/dashboard" }); }}
-          className="glass space-y-4 rounded-3xl p-6"
-        >
+        <form onSubmit={handleSubmit} className="glass space-y-4 rounded-3xl p-6">
           <div>
-            <label className="mb-2 block text-xs font-medium text-muted-foreground">Pick an avatar</label>
+            <label className="mb-2 block text-xs font-medium text-muted-foreground">
+              Pick an avatar
+            </label>
             <div className="grid grid-cols-8 gap-1.5">
               {avatars.map((a) => (
                 <button
@@ -40,7 +49,9 @@ function Signup() {
                   key={a}
                   onClick={() => setAvatar(a)}
                   className={`relative flex h-9 items-center justify-center rounded-xl text-lg transition ${
-                    avatar === a ? "gradient-primary shadow-glow scale-110" : "bg-background/60 hover:bg-accent"
+                    avatar === a
+                      ? "gradient-primary shadow-glow scale-110"
+                      : "bg-background/60 hover:bg-accent"
                   }`}
                 >
                   {a}
@@ -52,16 +63,37 @@ function Signup() {
             </div>
           </div>
 
-          <input required placeholder="Full name" className="w-full rounded-2xl border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30" />
-          <input required type="email" placeholder="Email" className="w-full rounded-2xl border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30" />
-          <input required type="password" placeholder="Password" className="w-full rounded-2xl border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30" />
+          <input
+            required
+            placeholder="Full name"
+            value={fullName}
+            onChange={(e) => setFullName(e.target.value)}
+            className="w-full rounded-2xl border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
+          />
+          <input
+            required
+            type="email"
+            placeholder="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className="w-full rounded-2xl border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
+          />
+          <input
+            required
+            type="password"
+            placeholder="Password"
+            className="w-full rounded-2xl border border-border bg-background/60 px-4 py-3 text-sm outline-none focus:border-primary focus:ring-2 focus:ring-primary/30"
+          />
 
           <div className="flex items-start gap-2 text-xs text-muted-foreground">
             <input type="checkbox" required className="mt-0.5 h-3.5 w-3.5 accent-primary" />
             <span>I agree to the Terms and Privacy Policy</span>
           </div>
 
-          <button type="submit" className="group flex w-full items-center justify-center gap-2 rounded-2xl gradient-primary py-3 text-sm font-semibold text-primary-foreground shadow-glow transition hover:scale-[1.02]">
+          <button
+            type="submit"
+            className="group flex w-full items-center justify-center gap-2 rounded-2xl gradient-primary py-3 text-sm font-semibold text-primary-foreground shadow-glow transition hover:scale-[1.02]"
+          >
             Create account
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
           </button>
@@ -69,7 +101,9 @@ function Signup() {
 
         <p className="mt-6 text-center text-sm text-muted-foreground">
           Already have an account?{" "}
-          <Link to="/login" className="font-semibold text-primary">Sign in</Link>
+          <Link to="/login" className="font-semibold text-primary">
+            Sign in
+          </Link>
         </p>
       </div>
     </div>

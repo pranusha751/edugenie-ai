@@ -3,7 +3,15 @@ import { BottomNav } from "./BottomNav";
 import { Link } from "@tanstack/react-router";
 import { MessageCircle } from "lucide-react";
 
-export function MobileShell({ children, hideNav = false, hideFab = false }: { children: ReactNode; hideNav?: boolean; hideFab?: boolean }) {
+export function MobileShell({
+  children,
+  hideNav = false,
+  hideFab = false,
+}: {
+  children: ReactNode;
+  hideNav?: boolean;
+  hideFab?: boolean;
+}) {
   return (
     <div className="mx-auto min-h-screen w-full max-w-md px-4 pb-28 pt-6">
       {children}

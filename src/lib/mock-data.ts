@@ -23,19 +23,83 @@ export const subjects = [
 ];
 
 export const planner = [
-  { time: "08:00", subject: "Python", topic: "NumPy & Pandas — Practice", duration: "45 min", color: "from-yellow-400 to-amber-500" },
-  { time: "09:30", subject: "Data Structures", topic: "Linked Lists — Reverse in O(n)", duration: "60 min", color: "from-fuchsia-500 to-pink-500" },
-  { time: "11:30", subject: "C++", topic: "OOP — Polymorphism & vtables", duration: "45 min", color: "from-indigo-500 to-violet-600" },
-  { time: "16:00", subject: "Operating Systems", topic: "Weak Topic: Page Replacement", duration: "60 min", color: "from-rose-500 to-pink-600" },
-  { time: "18:00", subject: "Java", topic: "Streams & Lambdas", duration: "30 min", color: "from-orange-500 to-red-500" },
-  { time: "20:00", subject: "DBMS", topic: "SQL Joins & Indexes", duration: "30 min", color: "from-emerald-500 to-teal-500" },
+  {
+    time: "08:00",
+    subject: "Python",
+    topic: "NumPy & Pandas — Practice",
+    duration: "45 min",
+    color: "from-yellow-400 to-amber-500",
+  },
+  {
+    time: "09:30",
+    subject: "Data Structures",
+    topic: "Linked Lists — Reverse in O(n)",
+    duration: "60 min",
+    color: "from-fuchsia-500 to-pink-500",
+  },
+  {
+    time: "11:30",
+    subject: "C++",
+    topic: "OOP — Polymorphism & vtables",
+    duration: "45 min",
+    color: "from-indigo-500 to-violet-600",
+  },
+  {
+    time: "16:00",
+    subject: "Operating Systems",
+    topic: "Weak Topic: Page Replacement",
+    duration: "60 min",
+    color: "from-rose-500 to-pink-600",
+  },
+  {
+    time: "18:00",
+    subject: "Java",
+    topic: "Streams & Lambdas",
+    duration: "30 min",
+    color: "from-orange-500 to-red-500",
+  },
+  {
+    time: "20:00",
+    subject: "DBMS",
+    topic: "SQL Joins & Indexes",
+    duration: "30 min",
+    color: "from-emerald-500 to-teal-500",
+  },
 ];
 
 export const codingTracks = [
-  { lang: "C", icon: "🅒", color: "from-sky-500 to-blue-600", problems: 124, solved: 88, rating: 1420 },
-  { lang: "C++", icon: "➕", color: "from-indigo-500 to-violet-600", problems: 210, solved: 132, rating: 1685 },
-  { lang: "Python", icon: "🐍", color: "from-yellow-400 to-amber-500", problems: 180, solved: 161, rating: 1820 },
-  { lang: "Java", icon: "☕", color: "from-orange-500 to-red-500", problems: 156, solved: 92, rating: 1510 },
+  {
+    lang: "C",
+    icon: "🅒",
+    color: "from-sky-500 to-blue-600",
+    problems: 124,
+    solved: 88,
+    rating: 1420,
+  },
+  {
+    lang: "C++",
+    icon: "➕",
+    color: "from-indigo-500 to-violet-600",
+    problems: 210,
+    solved: 132,
+    rating: 1685,
+  },
+  {
+    lang: "Python",
+    icon: "🐍",
+    color: "from-yellow-400 to-amber-500",
+    problems: 180,
+    solved: 161,
+    rating: 1820,
+  },
+  {
+    lang: "Java",
+    icon: "☕",
+    color: "from-orange-500 to-red-500",
+    problems: 156,
+    solved: 92,
+    rating: 1510,
+  },
 ];
 
 export const leaderboard = [

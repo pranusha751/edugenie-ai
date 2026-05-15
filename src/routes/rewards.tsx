@@ -34,7 +34,10 @@ function Rewards() {
           </div>
         </div>
         <div className="mt-4">
-          <div className="flex justify-between text-xs"><span>Level 24</span><span>Level 25</span></div>
+          <div className="flex justify-between text-xs">
+            <span>Level 24</span>
+            <span>Level 25</span>
+          </div>
           <div className="mt-1 h-2 overflow-hidden rounded-full bg-white/20">
             <div className="h-full rounded-full bg-white" style={{ width: "68%" }} />
           </div>
@@ -55,7 +58,10 @@ function Rewards() {
                 <p className="text-xs font-bold text-primary">+{c.reward} XP</p>
               </div>
               <div className="mt-1.5 h-1.5 overflow-hidden rounded-full bg-muted">
-                <div className="h-full rounded-full gradient-primary" style={{ width: `${c.progress}%` }} />
+                <div
+                  className="h-full rounded-full gradient-primary"
+                  style={{ width: `${c.progress}%` }}
+                />
               </div>
             </div>
           </div>
@@ -65,9 +71,16 @@ function Rewards() {
       <h3 className="mb-2 font-semibold">Badges</h3>
       <div className="grid grid-cols-4 gap-2">
         {badges.map((b) => (
-          <div key={b.name} className={`glass relative flex flex-col items-center gap-1 rounded-2xl p-3 text-center ${!b.earned && "opacity-60"}`}>
-            {!b.earned && <Lock className="absolute right-1.5 top-1.5 h-3 w-3 text-muted-foreground" />}
-            <div className={`flex h-12 w-12 items-center justify-center rounded-2xl text-2xl ${b.earned ? "gradient-primary shadow-glow" : "bg-muted"}`}>
+          <div
+            key={b.name}
+            className={`glass relative flex flex-col items-center gap-1 rounded-2xl p-3 text-center ${!b.earned && "opacity-60"}`}
+          >
+            {!b.earned && (
+              <Lock className="absolute right-1.5 top-1.5 h-3 w-3 text-muted-foreground" />
+            )}
+            <div
+              className={`flex h-12 w-12 items-center justify-center rounded-2xl text-2xl ${b.earned ? "gradient-primary shadow-glow" : "bg-muted"}`}
+            >
               {b.icon}
             </div>
             <p className="text-[10px] font-semibold leading-tight">{b.name}</p>

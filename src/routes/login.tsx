@@ -2,6 +2,8 @@ import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useState } from "react";
 import { Brain, Mail, Lock, ArrowRight } from "lucide-react";
 
+import { setUser } from "@/lib/auth-utils";
+
 export const Route = createFileRoute("/login")({
   component: Login,
 });
@@ -10,6 +12,15 @@ function Login() {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Extract name from email (e.g., "john" from "john@gmail.com")
+    const name = email.split("@")[0];
+    const capitalizedName = name.charAt(0).toUpperCase() + name.slice(1);
+    setUser(capitalizedName, email);
+    navigate({ to: "/dashboard" });
+  };
 
   return (
     <div className="relative min-h-screen overflow-hidden">
@@ -26,10 +37,7 @@ function Login() {
           <p className="mt-1 text-sm text-muted-foreground">Sign in to continue learning</p>
         </div>
 
-        <form
-          onSubmit={(e) => { e.preventDefault(); navigate({ to: "/dashboard" }); }}
-          className="glass space-y-4 rounded-3xl p-6"
-        >
+        <form onSubmit={handleSubmit} className="glass space-y-4 rounded-3xl p-6">
           <div>
             <label className="mb-1.5 block text-xs font-medium text-muted-foreground">Email</label>
             <div className="relative">
@@ -46,7 +54,9 @@ function Login() {
           </div>
 
           <div>
-            <label className="mb-1.5 block text-xs font-medium text-muted-foreground">Password</label>
+            <label className="mb-1.5 block text-xs font-medium text-muted-foreground">
+              Password
+            </label>
             <div className="relative">
               <Lock className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <input
@@ -64,7 +74,9 @@ function Login() {
             <label className="flex items-center gap-2 text-muted-foreground">
               <input type="checkbox" className="h-3.5 w-3.5 accent-primary" /> Remember me
             </label>
-            <a className="text-primary font-medium" href="#">Forgot?</a>
+            <a className="text-primary font-medium" href="#">
+              Forgot?
+            </a>
           </div>
 
           <button
@@ -76,7 +88,8 @@ function Login() {
           </button>
 
           <div className="flex items-center gap-3 text-xs text-muted-foreground">
-            <div className="h-px flex-1 bg-border" /> or continue with <div className="h-px flex-1 bg-border" />
+            <div className="h-px flex-1 bg-border" /> or continue with{" "}
+            <div className="h-px flex-1 bg-border" />
           </div>
 
           <div className="grid grid-cols-3 gap-2">
@@ -95,7 +108,9 @@ function Login() {
 
         <p className="mt-6 text-center text-sm text-muted-foreground">
           New here?{" "}
-          <Link to="/signup" className="font-semibold text-primary">Create an account</Link>
+          <Link to="/signup" className="font-semibold text-primary">
+            Create an account
+          </Link>
         </p>
       </div>
     </div>

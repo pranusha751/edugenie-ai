@@ -73,7 +73,11 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "EduGenie AI — Learn Smarter with AI" },
-      { name: "description", content: "AI-powered personalized learning. Quizzes, study plans, mentor & gamification for students." },
+      {
+        name: "description",
+        content:
+          "AI-powered personalized learning. Quizzes, study plans, mentor & gamification for students.",
+      },
       { name: "author", content: "EduGenie AI" },
       { property: "og:title", content: "EduGenie AI" },
       { property: "og:description", content: "Learn Smarter with AI." },
