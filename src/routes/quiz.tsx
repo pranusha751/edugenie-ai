@@ -50,7 +50,7 @@ function Quiz() {
         <div className="glass space-y-5 rounded-3xl p-5">
           <Field label="Subject">
             <div className="grid grid-cols-2 gap-2">
-              {["Mathematics", "Physics", "Chemistry", "Biology"].map((s) => (
+              {["C", "C++", "Python", "Java", "DSA", "DBMS", "OS", "Aptitude"].map((s) => (
                 <button key={s} onClick={() => setSubject(s)} className={`rounded-2xl border py-2.5 text-xs font-medium transition ${subject === s ? "gradient-primary text-primary-foreground border-transparent shadow-glow" : "border-border bg-background/60"}`}>{s}</button>
               ))}
             </div>
