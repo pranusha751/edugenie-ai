@@ -42,7 +42,7 @@ function Planner() {
           <Sparkles className="h-4 w-4" />
           <p className="text-xs uppercase tracking-wide opacity-90">AI suggestion</p>
         </div>
-        <p className="mt-1 text-sm">Focus on Genetics & Calculus today — both have upcoming revision deadlines.</p>
+        <p className="mt-1 text-sm">Focus on Linked Lists & OS Page Replacement today — both show up heavily in your target placement tests.</p>
       </div>
 
       <h3 className="mb-2 font-semibold">Schedule</h3>
@@ -71,7 +71,7 @@ function Planner() {
           </div>
           <div className="flex-1">
             <p className="text-sm font-semibold">Weak topic alert</p>
-            <p className="text-xs text-muted-foreground">Genetics — only 58% mastery. Revise basics today.</p>
+            <p className="text-xs text-muted-foreground">OS Page Replacement — 58% mastery. High weight in placements.</p>
           </div>
         </div>
         <div className="glass flex items-start gap-3 rounded-2xl p-4">
@@ -80,7 +80,7 @@ function Planner() {
           </div>
           <div className="flex-1">
             <p className="text-sm font-semibold">Recommended video</p>
-            <p className="text-xs text-muted-foreground">"Newton's Laws — Visual Guide" • 12 min</p>
+            <p className="text-xs text-muted-foreground">"Reverse a Linked List in C++ — 3 approaches" · 14 min</p>
           </div>
         </div>
       </div>

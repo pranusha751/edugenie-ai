@@ -10,10 +10,10 @@ export const Route = createFileRoute("/mentor")({
 type Msg = { role: "ai" | "user"; text: string };
 
 const initial: Msg[] = [
-  { role: "ai", text: "Hi Aarav! 👋 I'm Genie, your AI mentor. What do you want to learn today?" },
+  { role: "ai", text: "Hey Aarav! 👋 I'm Genie — your B.Tech AI mentor. Drop code, ask DSA, or let me explain any concept in C, C++, Python or Java." },
 ];
 
-const suggestions = ["Explain Newton's 3rd law", "Quiz me on Calculus", "Summarize Genetics chapter", "Plan today's study"];
+const suggestions = ["Explain pointers in C", "Reverse linked list in Python", "Java vs C++ OOP", "Debug my code", "Time complexity of quicksort"];
 
 function Mentor() {
   const navigate = useNavigate();
