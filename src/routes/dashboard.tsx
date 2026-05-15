@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MobileShell } from "@/components/MobileShell";
-import { studentName, weeklyProgress, subjects } from "@/lib/mock-data";
+import { studentName, studentMeta, weeklyProgress, subjects, codingTracks } from "@/lib/mock-data";
 import { Flame, Sparkles, Brain, Trophy, Play, BookOpen, Bell } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
@@ -13,7 +13,7 @@ function Dashboard() {
     <MobileShell>
       <header className="mb-5 flex items-center justify-between">
         <div>
-          <p className="text-xs text-muted-foreground">Welcome back</p>
+          <p className="text-xs text-muted-foreground">{studentMeta.branch} · {studentMeta.semester}</p>
           <h1 className="text-2xl font-bold">Hi, {studentName} 👋</h1>
         </div>
         <Link to="/profile" className="relative flex h-11 w-11 items-center justify-center rounded-2xl gradient-primary text-xl shadow-glow">
