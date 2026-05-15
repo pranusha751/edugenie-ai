@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { MobileShell } from "@/components/MobileShell";
 import { sampleQuiz } from "@/lib/mock-data";
 import { Sparkles, Timer, Check, X, Trophy } from "lucide-react";
@@ -28,9 +28,9 @@ function Quiz() {
     }
     const t = setTimeout(() => setTime((s) => s - 1), 1000);
     return () => clearTimeout(t);
-  }, [stage, time, picked]);
+  }, [stage, time, picked, handleNext]);
 
-  function handleNext() {
+  const handleNext = useCallback(() => {
     const newAnswers = [...answers, picked ?? -1];
     if (idx + 1 >= sampleQuiz.length) {
       setAnswers(newAnswers);
@@ -41,7 +41,7 @@ function Quiz() {
     setIdx(idx + 1);
     setPicked(null);
     setTime(20);
-  }
+  }, [answers, idx, picked]);
 
   if (stage === "config") {
     return (
@@ -221,7 +221,7 @@ function Quiz() {
   );
 }
 
-function Field({ label, children }: any) {
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
   return (
     <div>
       <label className="mb-2 block text-xs font-semibold text-muted-foreground">{label}</label>
@@ -229,7 +229,7 @@ function Field({ label, children }: any) {
     </div>
   );
 }
-function Stat({ label, value, color }: any) {
+function Stat({ label, value, color }: { label: string; value: string | number; color: string }) {
   return (
     <div className="rounded-2xl bg-background/60 p-3">
       <p className={`text-2xl font-bold ${color}`}>{value}</p>

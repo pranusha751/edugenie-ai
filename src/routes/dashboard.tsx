@@ -181,7 +181,19 @@ function Dashboard() {
   );
 }
 
-function QuickAction({ to, icon: Icon, label, sub, gradient }: any) {
+function QuickAction({
+  to,
+  icon: Icon,
+  label,
+  sub,
+  gradient,
+}: {
+  to: string;
+  icon: any;
+  label: string;
+  sub: string;
+  gradient: string;
+}) {
   return (
     <Link
       to={to}

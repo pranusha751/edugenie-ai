@@ -94,7 +94,7 @@ function Profile() {
   );
 }
 
-function Stat({ label, value }: any) {
+function Stat({ label, value }: { label: string; value: string | number }) {
   return (
     <div className="glass rounded-2xl p-3 text-center">
       <p className="text-lg font-bold text-gradient">{value}</p>
@@ -102,7 +102,7 @@ function Stat({ label, value }: any) {
     </div>
   );
 }
-function Section({ title, children }: any) {
+function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="mb-4">
       <h3 className="mb-2 px-1 text-xs font-semibold uppercase tracking-wide text-muted-foreground">
@@ -112,7 +112,7 @@ function Section({ title, children }: any) {
     </div>
   );
 }
-function Row({ icon: Icon, label, sub }: any) {
+function Row({ icon: Icon, label, sub }: { icon: any; label: string; sub: string }) {
   return (
     <div className="glass flex items-center gap-3 rounded-2xl p-3.5 transition hover:bg-accent">
       <div className="flex h-10 w-10 items-center justify-center rounded-xl gradient-primary">
