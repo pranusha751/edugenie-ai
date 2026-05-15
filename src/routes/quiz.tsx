@@ -12,9 +12,9 @@ type Stage = "config" | "playing" | "result";
 
 function Quiz() {
   const [stage, setStage] = useState<Stage>("config");
-  const [subject, setSubject] = useState("Mathematics");
+  const [subject, setSubject] = useState("Python");
   const [difficulty, setDifficulty] = useState("Medium");
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(5);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [answers, setAnswers] = useState<number[]>([]);
