@@ -12,9 +12,9 @@ type Stage = "config" | "playing" | "result";
 
 function Quiz() {
   const [stage, setStage] = useState<Stage>("config");
-  const [subject, setSubject] = useState("Mathematics");
+  const [subject, setSubject] = useState("Python");
   const [difficulty, setDifficulty] = useState("Medium");
-  const [count, setCount] = useState(3);
+  const [count, setCount] = useState(5);
   const [idx, setIdx] = useState(0);
   const [picked, setPicked] = useState<number | null>(null);
   const [answers, setAnswers] = useState<number[]>([]);
@@ -50,7 +50,7 @@ function Quiz() {
         <div className="glass space-y-5 rounded-3xl p-5">
           <Field label="Subject">
             <div className="grid grid-cols-2 gap-2">
-              {["Mathematics", "Physics", "Chemistry", "Biology"].map((s) => (
+              {["C", "C++", "Python", "Java", "DSA", "DBMS", "OS", "Aptitude"].map((s) => (
                 <button key={s} onClick={() => setSubject(s)} className={`rounded-2xl border py-2.5 text-xs font-medium transition ${subject === s ? "gradient-primary text-primary-foreground border-transparent shadow-glow" : "border-border bg-background/60"}`}>{s}</button>
               ))}
             </div>

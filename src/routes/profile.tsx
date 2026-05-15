@@ -39,7 +39,7 @@ function Profile() {
       </div>
 
       <Section title="Learning">
-        <Row icon={Target} label="Goals" sub="JEE 2026 — 6 months left" />
+        <Row icon={Target} label="Goals" sub="Placement Prep · DSA + CS Core" />
         <Row icon={Award} label="Certificates" sub="8 earned" />
         <Link to="/leaderboard"><Row icon={Trophy} label="Achievements" sub="Rank #2 globally" /></Link>
       </Section>

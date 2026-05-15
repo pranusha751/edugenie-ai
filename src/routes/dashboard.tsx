@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { MobileShell } from "@/components/MobileShell";
-import { studentName, weeklyProgress, subjects } from "@/lib/mock-data";
+import { studentName, studentMeta, weeklyProgress, subjects, codingTracks } from "@/lib/mock-data";
 import { Flame, Sparkles, Brain, Trophy, Play, BookOpen, Bell } from "lucide-react";
 
 export const Route = createFileRoute("/dashboard")({
@@ -13,7 +13,7 @@ function Dashboard() {
     <MobileShell>
       <header className="mb-5 flex items-center justify-between">
         <div>
-          <p className="text-xs text-muted-foreground">Welcome back</p>
+          <p className="text-xs text-muted-foreground">{studentMeta.branch} · {studentMeta.semester}</p>
           <h1 className="text-2xl font-bold">Hi, {studentName} 👋</h1>
         </div>
         <Link to="/profile" className="relative flex h-11 w-11 items-center justify-center rounded-2xl gradient-primary text-xl shadow-glow">
@@ -44,8 +44,8 @@ function Dashboard() {
           </div>
           <div className="flex-1">
             <p className="text-xs uppercase tracking-wide opacity-80">AI Recommendation</p>
-            <h3 className="mt-1 font-semibold">Revise Genetics today</h3>
-            <p className="mt-1 text-sm opacity-90">Your weakest topic. 20 min focused session can boost mastery by 12%.</p>
+            <h3 className="mt-1 font-semibold">Crack DSA: Linked Lists today</h3>
+            <p className="mt-1 text-sm opacity-90">Your weakest topic for placements. Solve 3 problems to boost mastery by 15%.</p>
             <button className="mt-3 rounded-full bg-white/95 px-4 py-1.5 text-xs font-semibold text-primary">Start now →</button>
           </div>
         </div>
@@ -72,10 +72,32 @@ function Dashboard() {
       </div>
 
       <div className="mb-5 grid grid-cols-2 gap-3">
-        <QuickAction to="/quiz" icon={Brain} label="Start Quiz" sub="AI generated" gradient="from-violet-500 to-fuchsia-500" />
-        <QuickAction to="/planner" icon={BookOpen} label="Continue" sub="Calculus" gradient="from-blue-500 to-cyan-500" />
-        <QuickAction to="/mentor" icon={Sparkles} label="AI Mentor" sub="Ask anything" gradient="from-pink-500 to-rose-500" />
+        <QuickAction to="/quiz" icon={Brain} label="Code Quiz" sub="C · C++ · Py · Java" gradient="from-violet-500 to-fuchsia-500" />
+        <QuickAction to="/planner" icon={BookOpen} label="Continue" sub="Linked Lists" gradient="from-blue-500 to-cyan-500" />
+        <QuickAction to="/mentor" icon={Sparkles} label="AI Mentor" sub="Debug & explain" gradient="from-pink-500 to-rose-500" />
         <QuickAction to="/leaderboard" icon={Trophy} label="Leaderboard" sub="Rank #2" gradient="from-amber-500 to-orange-500" />
+      </div>
+
+      <div className="mb-2 flex items-center justify-between">
+        <h3 className="font-semibold">Coding tracks</h3>
+        <span className="text-xs text-muted-foreground">DSA · CP</span>
+      </div>
+      <div className="mb-5 grid grid-cols-2 gap-2">
+        {codingTracks.map((t) => (
+          <Link key={t.lang} to="/quiz" className="glass rounded-2xl p-3 transition hover:scale-[1.02]">
+            <div className="flex items-center justify-between">
+              <div className={`flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br ${t.color} text-base font-bold text-white shadow-soft`}>
+                {t.icon}
+              </div>
+              <span className="text-[10px] font-bold text-primary">{t.rating}</span>
+            </div>
+            <p className="mt-2 text-sm font-semibold">{t.lang}</p>
+            <p className="text-[10px] text-muted-foreground">{t.solved}/{t.problems} solved</p>
+            <div className="mt-1.5 h-1 overflow-hidden rounded-full bg-muted">
+              <div className={`h-full rounded-full bg-gradient-to-r ${t.color}`} style={{ width: `${(t.solved / t.problems) * 100}%` }} />
+            </div>
+          </Link>
+        ))}
       </div>
 
       <div className="mb-2 flex items-center justify-between">
