@@ -20,16 +20,6 @@ function Quiz() {
   const [answers, setAnswers] = useState<number[]>([]);
   const [time, setTime] = useState(20);
 
-  useEffect(() => {
-    if (stage !== "playing" || picked !== null) return;
-    if (time === 0) {
-      handleNext();
-      return;
-    }
-    const t = setTimeout(() => setTime((s) => s - 1), 1000);
-    return () => clearTimeout(t);
-  }, [stage, time, picked, handleNext]);
-
   const handleNext = useCallback(() => {
     const newAnswers = [...answers, picked ?? -1];
     if (idx + 1 >= sampleQuiz.length) {
@@ -42,6 +32,16 @@ function Quiz() {
     setPicked(null);
     setTime(20);
   }, [answers, idx, picked]);
+
+  useEffect(() => {
+    if (stage !== "playing" || picked !== null) return;
+    if (time === 0) {
+      handleNext();
+      return;
+    }
+    const t = setTimeout(() => setTime((s) => s - 1), 1000);
+    return () => clearTimeout(t);
+  }, [stage, time, picked, handleNext]);
 
   if (stage === "config") {
     return (
